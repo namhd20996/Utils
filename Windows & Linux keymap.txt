@@ -1,0 +1,10 @@
+ctrl + alt + O : Xóa các thư viện không sử dụng
+ctrl + alt + L : Format code
+ctrl + Y: Xóa dòng
+ctrl + D: Tạo thêm 1 dòng như dòng đã chọn
+Ctrl+Alt+Shift+J : Chọn toàn bộ dòng giống trong vùng chọn
+Alt+J : Chọn vùng giống nhau đi xuống
+Alt+Shift+J: Chọn vùng giống nhau đi lên
+
+mvn clean install -DskipTests
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })

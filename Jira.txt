@@ -1,0 +1,5 @@
+- EPICS là đại diện cho 1 User story lớn hay là 1 requiment lớn cần chia thành các Us nhỏ
+ + Issues: là bao hàm tab, bug, subtab
+ + Completed: những user story những tab, subtab có bao công công việc được hoàn thành
+ + Unestimated: Với tổng số lượng user story trong EPICS thì cần bao nhiêu time để hoàn thành 
+

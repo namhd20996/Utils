@@ -1,0 +1,24 @@
+<div class="col d-flex justify-content-center">
+  <ul class="pagination" id="pagination"></ul>
+  <input type="hidden" value="" id="page" name="page"/>
+  <input type="hidden" value="" id="limit" name="limit"/>
+</div>
+
+<script type="text/javascript">
+    var totalPages = ${model.totalPage};
+    var currentPage = ${model.page};
+    $(function () {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: totalPages,
+            visiblePages: 4,
+            startPage: currentPage,
+            onPageClick: function (event, page) {
+                if (currentPage != page) {
+                    $('#limit').val(2);
+                    $('#page').val(page);
+                    $('#formSubmit').submit();
+                }
+            }
+        })
+    });
+</script>

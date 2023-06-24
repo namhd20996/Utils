@@ -1,0 +1,29 @@
+o Jumbotron - Tạo vùng nhấn
+o Carousel - Tạo image chuyển động
+o Collapse - Tạo thanh item sổ xuống
+o Pagination, Pager - Phân trang
+o Hình ảnh 
+o Thumbnail - Tạo vòng bo cho img
+o Labels, Badges - Tạo điểm nhấn cho vùng chữ
+o tabs - Giống Tabbed Panes Java
+o Modal
+
+Syntax add, update Object AngularJS
+
+o Example student 1 to student 2:
+$scope.student1 = {};	
+$scope.student2 = angular.copy($scope.student1);
+
+o Add list Example.
+$scope.students = [{},...];
+$scope.students.push(angular.copy($scope.student1));
+
+<select ng-model="age" name="" id="" class="form-control" ng-options="x.age for x in ages">
+</select>
+
+$valid : false $invalid : true
+
+
+
+
+

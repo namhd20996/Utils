@@ -1,0 +1,14 @@
+Thẻ input sẽ có các trạng thái sau:
+	$untouched: Trường này chưa được chạm vào.
+	$touched: Trường này đã được chạm vào.
+	$pristine: Trường này chưa được thay đổi.
+	$dirty: Trường này đã được thay đổi.
+	$invalid: Trường có nội dung không hợp lệ.
+	$valid: Trường có nội dung hợp lệ.
+
+Form thì sẽ có các trạng thái sau:
+	$pristine: Không có trường nào được thay đổi.
+	$dirty: Có một trường hoặc nhiều trường đã được thay đổi.
+	$invalid: Nội dung Form là không hợp lệ.
+	$valid: Nội dung Form là hợp lệ.
+	$submitted: Form đã được submit.

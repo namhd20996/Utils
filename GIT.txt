@@ -1,0 +1,174 @@
+Câu lệnh: để thay đổi đường dẫn trong GIT hoặc CMD
+cd : viết tắt của Change Directory
+- Khi muốn lùi lại 1 thư mục sử dụng: cd ..
+- Khi muốn xem bên trong thư mục hiện tại có các file nào
++ Đối với window thì sử dụng: dir
++ Đối với linux, mac thì sử dụng: ls
++ Nhưng khi sử dụng GIT với window có thể sử dụng cả 2 lệnh trên, nhưng khi sử dụng ls nó sẽ hiển thị được các file 
+ở dạng nào và màu sắc khác nhau
+- Khi muốn xóa các dòng đang hiển thị gõ cú pháp: clear
+- Muốn quay lại các câu lệnh cũ đã gõ thì sử dụng mũi tên lên xuống.
+
+-Khi muốn tạo thư mục mới sử dụng: mkdir  viết tắt của macke directory
++ Example: mkdir source
+
+- Khi muốn tạo file mới sử dụng touch:
++ Example: touch name.txt
++ Khi muốn tạo file có khoảng trắng thì sử dụng dấu nháy đơn để tạo 
++ Example: touch 'example one.txt'
++ Nếu tạo file có khoảng trắng mà không bỏ vào trong dấu nháy thì nó sẽ hiểu là 2 file sẽ tạo sai file cần tạo.
++ Khi tạo file mà file đó đã tồn tại sẽ không tạo được file mới.
+
+- in / xuất nội dung sử dụng: echo
++ Example: echo "Hello!.." nó sẽ in ra
++ Khi muốn lưu nội dụng vào file
++ Example: echo "Text" > "name-file.txt" nó sẽ lưu đoạn Text vào file có tên name-file.txt và nó sẽ ghi đè toàn bộ nội dung.
+- Khi muốn lưu không bị đè nội dung sử dụng 2 dấu >> để khi lưu nó sẽ tạo ra 1 dòng mới.
++ Example: echo "Text" >> "name-file.txt"
+- echo cũng có thể dùng để tạo 1 file mới không có data hoặc 1 file mới có data
++ Example tạo file: echo > example.txt
++ Example file có data: echo "Hello.." > example.txt
+
+- Để hiển thị nội dung sử dụng : cat
++ Example: cat name.txt
+
+- Để so sánh 2 file có gì khác nhau sủ dụng: diff (different)
++ Example: diff nameOne.txt nameTwo.txt
+
+- Để xóa file sử dụng: rm (remove)
++ Example: rm filename
+- Để xóa thư mục nếu rỗng:
++ Example: rm -d DirectoryName
+- Để xóa thư mục có file bên trong
++ Example: rm -r DirectoryName
+
+- Các từ khóa hay sử dụng
++ Repository: (repo) Kho lưu trữ
++ commit: một đơn vị làm việc
++ branch: nhánh 
++ main / master: tên của repo chính (main repo)
++ merge / rebase: kết hợp 2 nhánh 
++ develop: tên của nhánh, lập trình viên
+
+- Câu lệnh hay dùng:
++ git --version
++ git --help: hiển thị các trợ giúp
++ git status: hiển thị trạng thái của repository
++ git log: hiển thị lịch sử commit
+
+- Câu lệnh tạo GIT
++ git init [repo name] : tạo ra một kho lưu trữ
++ git clone [repo name] [clone name]: tạo ra một bản sao liên kết với repo
++ git config -l: xem cấu hình hiện tại
+ + Xem cấu hình global: git config -l --global
+ + Xem cấu hình local: git config -l --local
++ git config [--scope] [option name] [value]: 
+	+ scope: có 3 phạm vi
+	 + --system : tất cả người dùng
+	 + --global : liên quan đến repo(s)
+	 + --local : liên quan đến repo hiện tại đang sử dụng
+	 
+- Câu lệnh required cần cấu hình để làm việc với Repository
++ git config --global user.name "Hoang Duy Nam"
++ git config --global user.email "hoangduynam20996@gmail.com"
++ git config --local user.name "Hoang Duy Nam"
++ git config --local user.email "hoangduynam20996@gmail"
+
+
++ git add [filename(s)]: thêm tệp vào Index (staging area) khu vực tổ chức
++ git add . : thêm toàn bộ tệp, file đang ở khu vực làm việc vào Index (staging area) khu vực tổ chức
++ git commit -m "Nội dung": tạo commit -> repo m ở đây là viết tắt của message 
++ git status: sự khác biệt giữa 3 cây
++ git diff: so sánh với commit cuối
++ git log: xem lại lịch sử  commit
+	+ git log --oneline
+
+- Bỏ qua các file, thư mục khi commit sử dụng .gitignore
++ Example:
+ Bước 1: Tạo file .gitignore : touch .gitignore
+	- Bỏ qua thư mục: echo "DirectoryName/" > .gitignore sử dụng 1 dấu > sẽ bị ghi đè nếu không ghi đè sử dụng 2 dấu >>
+	- Bỏ qua file log: echo "*.log" >> .gitignore
+	- Bỏ qua file theo tên: echo "name-file" >> .gitignore 
+	
+- Làm việc với khu lưu trữ trung tâm: Central Repository - Remote Repository
++ Câu lệnh
+	+ git init --bare : tạo một central repo
+	+ git clone [repo name] [clone repo] : sao chép và liên kết với repo name
+	+ git fetch : lấy các thông tin về commit mới từ central
+	+ git pull : lấy dữ liệu từ central về local repo
+	+ git push : đẩy các commit từ local repo lên central repo
+ 
+ 
+ - Quay lại nhánh cũ sử dụng : git checkout <commit_hash>
+ Example : git checkout 8bab888
+ 
+ - Làm việc với nhánh: branch
+	+ Tạo nhánh: git branch <name-branch>
+	+ Kiểm tra đang làm việc với nhánh nào và danh sách nhánh: git branch -l, git branch -a : hiển thị toàn bộ nhánh ở Central Repository
+	+ Khi tạo ra 1 tập tin hay 1 file trong branch master mà chưa có commit thì các branch con vẫn có thể thấy được tập tin
+	khi đã nhập lệnh commit sẽ còn thấy.
+	
+- Khi push ở nhánh mà gặp lỗi thì sử dụng: git push -u origin name-branch
+
+- Git Merge - Kết hợp nội dung từ các nhánh
+	+ Cú pháp: git merge name-branch 
+	+ Khi đang đứng ở nhánh nào khi gọi nhánh khác nó sẽ đổ toàn bộ file ở nhánh còn lại vào nhánh đang đứng và sắp xếp theo time commit
+	
+- Git Rebase - tái cơ sở cho một nhánh trong Git
+	+ Nó sẽ nối các commit của branch hiện tại đang đứng với nhánh khác và nối vào commit cuối của nhánh đó
+	Example: đang sử dụng branch B: nhập git rebase master nó sẽ nối nhánh B vào commit cuối của nhánh master
+	+ Cú pháp: git rebase <name-branch>
+	+ Khi gặp lỗi conflict sẽ có thông báo: git rebase --continue : sẽ tiếp tục các thay đổi của file
+									git rebase --skip	: bỏ qua các thay đổi	
+
+- Cách xóa nhánh trong GIT
+	+ Cú pháp: git branch -d <name-branch>: khi xóa bằng cú pháp này nó chỉ xóa ở local repository ở trên Central Repository vẫn còn
+	+ Cú pháp: git push origin -d <name-branch> : xóa nhánh ở Central Repository
+
+- Git Reset - Hủy bỏ commit:
+	+ Có 3 dạng reset:
+	+ git reset --soft <commit id>: Di chuyển head về vị trí commit. Trạng thái của Stage (trạng thái khi gọi git add .) và tất cả
+	sự thay đổi của file được giữ nguyên. Giống như nó chỉ quay về vị trí commit đó và không có thay đổi gì khi trước đã thao tác với
+	commit hiện tại.
+	+ git reset [--mixed] <commit id>: Di chuyển head về vị trí commit, vẫn giữ nguyên thay đổi của file, nhưng loại bỏ các thay đổi
+	Trạng thái của Stage (trạng thái khi gọi git add .)
+	+ git reset --hard <commit id>: Di chuyển head về vị trí commit và loại bỏ tất cả sự thay đổi.
+	
+- Git Revert - Quay lại các commit trước đây 
+	+ Nó sẽ copy commit bạn muốn quay về thành 1 bản sao và tiếp tục làm việc tại đó và nó sẽ không xóa đi commit nào
+	+ Cú pháp: git revert HEAD quay về commit gần nhất
+	+ 			git revert --no-edit HEAD để không hiện thông báo
+	+ Để quay về theo <commit id>: git revert <commit id>
+	
+- Clone dự án GitHub về máy
+		+ Cú pháp: git clone <https của central repository>
+- Đẩy dự án local lên GitHub
+	+ Cú pháp trước khi push: git remote add origin <https của central repository>
+	+ Đối với github nó chỉ có nhánh main không có nhánh master cần đổi tên nhánh: git branch -M <name-branch new>
+	
+	First Do this ...
+
+	git fetch origin master
+	git merge  master
+
+	Then, do this ...
+
+	git fetch origin <name-branch>:tmp
+	git rebase tmp
+	git push origin HEAD:<name-branch>
+	git branch -D tmp
+
+	Now everything works well.
+
+- Fork và cập nhật Repo của người khác trên GitHub
+	+ git remote -v : xem được các đường dẫn hiện tại đang fork
+	+ Muốn cập nhật các thông tin mới từ đường dẫn mình đã fork
+		+ git remote add <name-fork tự đặt> <https của central repository của người fork>
+			Example: git remote add newFork https://github.com/namhdps25979/ExerciseDemo_Fork.git
+	+ Kiểm tra có gì mới hay không của đường dẫn đã add: 
+		Example: git fetch <name-fork> : git fetch newFork
+	+ Kéo các thay đổi mới: git merge <name-fork>/<name-branch> : git merge newFork/main
+	
+	Username GitHub : Password : 0968997434bB
+	namhd20996
+	namhdps25979
